@@ -1,7 +1,7 @@
 # mproc
 ### Custom Multiprocessing scripts for running hyperparameter sweeps
  1) Create a function that takes a dataframe.iterrows() output, where the Series has all of the named variables required in the function.
- in this example we have an is_even.py function in the functions folder. The accepted outputs for this function is either a list of dicts, or a list of lists of dicts.
+ in this example we have an is_even.py function in the functions folder. The accepted outputs for this function is either a dict or a list of dicts
  2) Define a file named MPROC_CONFIG.py which contains a dictionary with all of the variables over which a parameter sweep will be completed. In this file you must import that function in step 1 as function. There are three modes in which the mproc sweep can be run. Uniform, where each parameter must have an equal number of values, combinatorial, where the cartesian product of all lists in the CONFIG dictionary will be swept through, and random sampling, which picks a value at random from each parameter to create n_samples, and sweeps through those.
  3) Run mproc.sh
 

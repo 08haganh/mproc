@@ -109,6 +109,7 @@ def main():
             results.to_csv(f'{args.output_directory}/batch{i}_{args.output_prefix}.csv',index=False)    
 
 def reduce_mem_usage(props):
+    # from https://www.kaggle.com/code/arjanso/reducing-dataframe-memory-size-by-65/notebook
     start_mem_usg = props.memory_usage().sum() / 1024**2 
     print("Memory usage of properties dataframe is :",start_mem_usg," MB")
     NAlist = [] # Keeps track of columns that have missing values filled in. 
@@ -135,7 +136,6 @@ def reduce_mem_usage(props):
             result = result.sum()
             if result > -0.01 and result < 0.01:
                 IsInt = True
-
             
             # Make Integer/unsigned Integer datatypes
             if IsInt:
