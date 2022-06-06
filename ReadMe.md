@@ -9,3 +9,5 @@ Please note that the iterative functions can take as arguments other functions, 
 
 The script works by first splitting the parametrisations into batches based on the max rows argument. This is chosen based on the fact that the outputs from the mproc will be loaded into a pandas dataframe, the dimensions of which will be max_rows*n_features returned from function in step 1. If that product is too large, your computer will freeze during dataframe construction. Once the batches are obtained, it will run through each parametrisation in batch using max_workers. The results from the batch will be saved as a dataframe, memory reduction will be completed if reduce_mem_usage, and the dataframe will be saved. If the dataframe exceeds max_mem, the batched dataframe will be broken up further into chunks ~equal to max_mem. 
 
+It is recommended that you always include as an output from the function the index of the input row from the param file, such that output results can be easily matched to inputs
+
